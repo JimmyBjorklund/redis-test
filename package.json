@@ -11,10 +11,10 @@
     "watch": "nodemon",
     "prettier": "prettier --write app/"
   },
-  "author": "martin.frick@netmoregroup.com",
-  "license": "Netmore group AB",
+  "author": "jimmy bjorklund",
+  "license": "MIT",
   "dependencies": {
-    "@redis/client": "1.5.16"
+    "@redis/client": "1.6.0"
   },
   "devDependencies": {
     "nodemon": "^3.0.3",

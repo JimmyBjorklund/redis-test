@@ -1,16 +1,11 @@
 
 import { RedisService } from "./redis-service";
+import { Config } from "./config";
 
 process.env.TZ = "UTC";
 
-const config = {
-  redis: {
-    host: "clustercfg.connect-memdb.bbw2ni.memorydb.eu-north-1.amazonaws.com",
-    port: 6379,
-    username: "connect",
-    password: "YjLbWJrL68thm3zmb6TCerRCJjwucZE"
-  },
-}
+const config = new Config();
+
 const redisService = new RedisService(config);
 
 

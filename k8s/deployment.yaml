@@ -11,17 +11,24 @@ spec:
     metadata:
       labels:
         app: redis-test
-      annotations: 
-        prometheus.io/port: "4000"
-        prometheus.io/scrape: "true"
     spec:
       imagePullSecrets:
         - name: regcred
       containers:
         - name: redis-test
-          image: "ghcr.io/JimmyBjorklund/redis-test:latest"
+          image: "ghcr.io/jimmybjorklund/redis-test:latest"
           imagePullPolicy: Always
+          volumeMounts:
+            - mountPath: /usr/src/app/config
+              name: conf
+              readOnly: true
           ports:
             - name: "http"
               containerPort: 4000
               protocol: TCP
+      volumes:
+        - name: "conf"
+          projected:
+            sources:
+            - secret:
+                name: "redis-test.conf"

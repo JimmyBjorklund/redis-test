@@ -1,13 +1,6 @@
 import { exit } from "process";
 import { RedisClientType, RedisClusterType, RedisClusterOptions, createClient, createCluster } from "@redis/client";
-interface Config {
-  redis: {
-    host: string;
-    port: number;
-    username: string;
-    password: string;
-  };
-}
+import { Config } from "./config";
 
 export class RedisService {
   //private redis: RedisClientType;
@@ -34,6 +27,7 @@ export class RedisService {
 
   public connectRedis = async (): Promise<void> => {
     console.log("Connecting to Redis Cluster: " + this.config.redis.host + ":" + this.config.redis.port);
+    console.log("                             " + this.config.redis.username + " " + this.config.redis.password);
     this.redis.on("error", (err) => console.error("Redis Cluster Error", err));
     await this.redis
       .connect()
