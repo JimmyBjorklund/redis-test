@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis-test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: redis-test
+  template:
+    metadata:
+      labels:
+        app: redis-test
+      annotations: 
+        prometheus.io/port: "4000"
+        prometheus.io/scrape: "true"
+    spec:
+      imagePullSecrets:
+        - name: regcred
+      containers:
+        - name: redis-test
+          image: "ghcr.io/JimmyBjorklund/redis-test:latest"
+          imagePullPolicy: Always
+          ports:
+            - name: "http"
+              containerPort: 4000
+              protocol: TCP

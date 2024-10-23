@@ -1,0 +1,25 @@
+{
+  "name": "redis-test",
+  "version": "0.0.11",
+  "description": "redis-test",
+  "main": "app/app.ts",
+  "private": true,
+  "scripts": {
+    "start": "ts-node app/app.ts",
+    "pstart": "node ./app/app.js",
+    "build": "tsc",
+    "watch": "nodemon",
+    "prettier": "prettier --write app/"
+  },
+  "author": "martin.frick@netmoregroup.com",
+  "license": "Netmore group AB",
+  "dependencies": {
+    "@redis/client": "1.5.16"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.3",
+    "prettier": "^3.0.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.3.3"
+  }
+}

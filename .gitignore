@@ -1,0 +1,11 @@
+config/config.js
+node_modules/**
+*~
+certs/
+dev/**
+prod/**
+staging/**
+app/gen/**
+build/**
+test-results.xml
+config/commonConfig.js
